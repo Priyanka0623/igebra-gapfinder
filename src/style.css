@@ -1,0 +1,102 @@
+/* Global stylesheet and reusable design tokens from the GapFinder signature UI */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #f6f7f5;
+    --bg-surface: #ffffff;
+    --text-primary: #202a25;
+    --text-muted: #78817b;
+    --border-subtle: #e9ece8;
+    --brand-green: #204a35;
+    --brand-lime: #b6e97a;
+    --brand-soft: #eef4ed;
+  }
+
+  .dark {
+    --bg-primary: #0f1612;
+    --bg-surface: #16201b;
+    --text-primary: #eef3ef;
+    --text-muted: #95a39a;
+    --border-subtle: #24332b;
+    --brand-green: #25583f;
+    --brand-lime: #c4f088;
+    --brand-soft: #1c2d24;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Signature reusable UI classes for any feature page */
+.gf-brand-mark {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px 9px 9px 3px;
+  background: #214f3a;
+  color: #c5f087;
+  font: 800 20px "Manrope", sans-serif;
+}
+
+.gf-hero-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  color: #ffffff;
+  background: #204a35;
+}
+
+.gf-hero-card::before {
+  position: absolute;
+  content: "";
+  width: 320px;
+  height: 320px;
+  right: 60px;
+  top: -170px;
+  border: 1px solid rgba(220, 247, 189, 0.1);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 35px rgba(220, 247, 189, 0.03),
+    0 0 0 70px rgba(220, 247, 189, 0.02);
+  pointer-events: none;
+}
+
+.gf-panel {
+  border: 1px solid var(--border-subtle);
+  border-radius: 11px;
+  background: var(--bg-surface);
+}
+
+.gf-eyebrow {
+  color: #859087;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
